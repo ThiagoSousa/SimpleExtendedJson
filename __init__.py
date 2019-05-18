@@ -1,13 +1,14 @@
-from decoder import JsonDecoder
+from .decoder import JsonDecoder
 from json.decoder import JSONDecodeError
 
 
 # loads the string as json reading
 def loads(string):
-    return JsonDecoder.decode(string)
+    j = JsonDecoder()
+    return j.decode(string)
 
 
 # load the json from file
 def load(f):
-    string = open(f, "r").read().decode("utf-8")
+    string = open(f, "r").read()
     return loads(string)
