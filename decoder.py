@@ -32,9 +32,9 @@ class JsonDecoder(object):
         #     raise JSONDecodeError(msg, err)
 
         # loading the json using the traditional json library
-        #try:
-        data = json.loads(string, object_hook=self.object_hook)
-        #except JSONDecodeError as err:
-        #    raise JSONDecodeError(err.msg)
+        try:
+            data = json.loads(string, object_hook=self.object_hook)
+        except JSONDecodeError as err:
+           raise JSONDecodeError(err.msg)
 
         return data
